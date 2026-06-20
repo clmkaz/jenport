@@ -1,5 +1,5 @@
 /* ============================================
-   JENPORT - Advanced Cosplay Portfolio
+   JENPORT - Anime Cosplay Portfolio
    JavaScript - Main Application
    ============================================ */
 
@@ -25,10 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initSakuraPetals();
   initEnergyParticles();
   initTypewriterEffect();
-  initSkillBars();
-  initTiltCards();
-  initAnimeReveal();
-  initSpeedLines();
   initSparkles();
 });
 
@@ -170,70 +166,70 @@ function initThemeToggle() {
   });
 }
 
-// ====== GALLERY DATA ======
+// ====== GALLERY DATA - Anime Themed ======
 const galleryData = [
   {
     id: 1,
-    title: 'Dragon Empress',
-    category: 'fantasy',
-    image: 'https://placehold.co/600x800/1a1a2e/e94560?text=Dragon+Empress&font=Raleway',
-    description: 'Elaborate dragon-inspired fantasy armor with LED effects.'
+    title: 'Naruto Uzumaki',
+    category: 'shonen',
+    image: 'https://placehold.co/600x800/1a1030/ff6b9d?text=Naruto&font=Raleway',
+    description: 'Seventh Hokage inspired costume with custom jacket and headband.'
   },
   {
     id: 2,
-    title: 'Cyber Knight',
-    category: 'sci-fi',
-    image: 'https://placehold.co/600x800/16213e/00d4ff?text=Cyber+Knight&font=Raleway',
-    description: 'Cyberpunk knight armor with neon trim and LED accents.'
+    title: 'Sailor Moon',
+    category: 'magical',
+    image: 'https://placehold.co/600x800/1a1030/c084fc?text=Sailor+Moon&font=Raleway',
+    description: 'Magical guardian outfit with hand-embroidered brooch and tiara.'
   },
   {
     id: 3,
-    title: 'Sakura Champion',
-    category: 'anime',
-    image: 'https://placehold.co/600x800/2d1b3e/ff6b9d?text=Sakura&font=Raleway',
-    description: 'Cherry blossom themed battle outfit from popular anime.'
+    title: 'Mikasa Ackerman',
+    category: 'shonen',
+    image: 'https://placehold.co/600x800/1a1030/60a5fa?text=Mikasa&font=Raleway',
+    description: 'Survey Corps uniform with 3D maneuver gear replica.'
   },
   {
     id: 4,
-    title: 'Void Walker',
+    title: 'Original - Star Mage',
     category: 'original',
-    image: 'https://placehold.co/600x800/1a1a2e/7b2fff?text=Void+Walker&font=Raleway',
-    description: 'Original character concept from the Void Realm series.'
+    image: 'https://placehold.co/600x800/1a1030/fbbf24?text=Star+Mage&font=Raleway',
+    description: 'Original magical girl character with cosmic star motifs.'
   },
   {
     id: 5,
-    title: 'Phoenix Guardian',
-    category: 'fantasy',
-    image: 'https://placehold.co/600x800/3e1a1a/e94560?text=Phoenix&font=Raleway',
-    description: 'Fire-themed guardian armor with flowing cape and wings.'
+    title: 'Tanjiro Kamado',
+    category: 'shonen',
+    image: 'https://placehold.co/600x800/1a1030/ff6b9d?text=Tanjiro&font=Raleway',
+    description: 'Demon Slayer outfit with hand-painted hanafuda earrings.'
   },
   {
     id: 6,
-    title: 'Neon Samurai',
-    category: 'sci-fi',
-    image: 'https://placehold.co/600x800/1a2e1a/00ff88?text=Neon+Samurai&font=Raleway',
-    description: 'Cyber samurai with holographic projections and light-up blade.'
+    title: 'Hatsune Miku',
+    category: 'magical',
+    image: 'https://placehold.co/600x800/1a1030/c084fc?text=Miku&font=Raleway',
+    description: 'Vocaloid diva costume with LED light-up hair accessories.'
   },
   {
     id: 7,
-    title: 'Moon Priestess',
-    category: 'fantasy',
-    image: 'https://placehold.co/600x800/1a1a3e/8888ff?text=Moon+Priestess&font=Raleway',
-    description: 'Ethereal moon-themed ceremonial robes with crystal staff.'
+    title: 'Yoruichi Shihoin',
+    category: 'shonen',
+    image: 'https://placehold.co/600x800/1a1030/60a5fa?text=Yoruichi&font=Raleway',
+    description: 'Bleach captain outfit with custom cat transformation details.'
   },
   {
     id: 8,
-    title: 'Shadow Assassin',
-    category: 'anime',
-    image: 'https://placehold.co/600x800/1a1a1a/ff4444?text=Shadow&font=Raleway',
-    description: 'Stealth assassin from hit anime series Shadow Realm.'
+    title: 'Original - Shadow Fox',
+    category: 'original',
+    image: 'https://placehold.co/600x800/1a1030/ff6b9d?text=Shadow+Fox&font=Raleway',
+    description: 'Original ninja fox spirit with glowing eyes and tail.'
   },
   {
     id: 9,
-    title: 'Steam Punk Engineer',
-    category: 'original',
-    image: 'https://placehold.co/600x800/2e1a0e/ff8844?text=SteamPunk&font=Raleway',
-    description: 'Victorian-era inspired steampunk engineer with brass gadgets.'
+    title: 'Cardcaptor Sakura',
+    category: 'magical',
+    image: 'https://placehold.co/600x800/1a1030/fbbf24?text=Sakura&font=Raleway',
+    description: 'Classic magical girl outfit with Clow Card props.'
   }
 ];
 
@@ -356,64 +352,64 @@ function updateLightboxContent() {
   document.getElementById('lightboxDesc').textContent = item.description;
 }
 
-// ====== BLOG DATA ======
+// ====== BLOG DATA - Anime Convention Events ======
 const blogData = [
   {
     id: 1,
-    title: 'Building My First Foam Armor: A Complete Guide',
-    excerpt: 'Everything I learned from sculpting, shaping, and painting my first full foam armor set for convention season.',
-    image: 'https://placehold.co/600x400/1a1a2e/e94560?text=Foam+Armor&font=Raleway',
-    date: 'June 15, 2026',
-    category: 'Tutorials',
-    categoryClass: 'tutorials',
+    title: 'Anime Expo 2026: My Best Cosplay Yet!',
+    excerpt: 'From preparation to the main stage, here is my full experience at Anime Expo 2026 with my award-winning Naruto cosplay.',
+    image: 'https://placehold.co/600x400/1a1030/ff6b9d?text=Anime+Expo+2026&font=Raleway',
+    date: 'July 4, 2026',
+    category: 'Conventions',
+    categoryClass: 'events',
     readTime: '8 min read'
   },
   {
     id: 2,
-    title: 'Behind the Scenes: Dragon Empress Costume',
-    excerpt: 'A deep dive into the 3-month journey of creating my award-winning Dragon Empress cosplay from concept to completion.',
-    image: 'https://placehold.co/600x400/16213e/00d4ff?text=Dragon+Costume&font=Raleway',
-    date: 'May 28, 2026',
-    category: 'Behind the Scenes',
-    categoryClass: 'behind',
+    title: 'How I Built My Demon Slayer Costume',
+    excerpt: 'A step-by-step breakdown of crafting Tanjiro\'s iconic outfit, from fabric selection to the final photoshoot.',
+    image: 'https://placehold.co/600x400/1a1030/c084fc?text=Demon+Slayer+Build&font=Raleway',
+    date: 'June 20, 2026',
+    category: 'Tutorials',
+    categoryClass: 'tutorials',
     readTime: '12 min read'
   },
   {
     id: 3,
-    title: 'Top 10 Cosplay Conventions to Visit in 2026',
-    excerpt: 'From local meetups to international stages, here are the must-visit conventions for every cosplay enthusiast.',
-    image: 'https://placehold.co/600x400/2d1b3e/ff6b9d?text=Conventions&font=Raleway',
-    date: 'May 10, 2026',
+    title: 'Top 10 Anime Conventions to Visit in 2026',
+    excerpt: 'From Comiket to Crunchyroll Expo, discover the best anime conventions around the world for cosplayers and fans.',
+    image: 'https://placehold.co/600x400/1a1030/60a5fa?text=Conventions+2026&font=Raleway',
+    date: 'June 5, 2026',
     category: 'Events',
     categoryClass: 'events',
     readTime: '6 min read'
   },
   {
     id: 4,
-    title: 'LED Integration for Cosplay: Wiring Basics',
-    excerpt: 'Learn how to add programmable LED strips to your costumes with this beginner-friendly electronics guide.',
-    image: 'https://placehold.co/600x400/1a2e1a/00ff88?text=LED+Guide&font=Raleway',
-    date: 'April 22, 2026',
+    title: 'LED Effects for Anime Cosplay: A Beginner\'s Guide',
+    excerpt: 'Learn how to add glowing effects to your anime costumes with easy-to-follow LED integration techniques.',
+    image: 'https://placehold.co/600x400/1a1030/fbbf24?text=LED+Guide&font=Raleway',
+    date: 'May 18, 2026',
     category: 'Tutorials',
     categoryClass: 'tutorials',
     readTime: '10 min read'
   },
   {
     id: 5,
-    title: 'Convention Survival Kit: What I Always Pack',
-    excerpt: 'After 100+ events, here is my ultimate cosplayer survival kit checklist to keep you comfortable and prepared.',
-    image: 'https://placehold.co/600x400/3e1a1a/e94560?text=Kit&font=Raleway',
-    date: 'April 5, 2026',
+    title: 'Convention Survival Kit for Cosplayers',
+    excerpt: 'After 60+ conventions, here is my ultimate cosplayer survival kit that keeps me comfortable and ready.',
+    image: 'https://placehold.co/600x400/1a1030/ff6b9d?text=Con+Kit&font=Raleway',
+    date: 'May 2, 2026',
     category: 'Tips',
     categoryClass: 'tips',
     readTime: '5 min read'
   },
   {
     id: 6,
-    title: 'From Sketch to Stage: My Design Process',
-    excerpt: 'How I transform character concepts into wearable costumes, from initial sketches to the final convention debut.',
-    image: 'https://placehold.co/600x400/1a1a3e/8888ff?text=Design+Process&font=Raleway',
-    date: 'March 18, 2026',
+    title: 'Behind the Scenes: My Miku Cosplay Photoshoot',
+    excerpt: 'Go behind the camera and see how we brought Hatsune Miku to life with amazing lighting and editing.',
+    image: 'https://placehold.co/600x400/1a1030/c084fc?text=Miku+Photoshoot&font=Raleway',
+    date: 'April 15, 2026',
     category: 'Behind the Scenes',
     categoryClass: 'behind',
     readTime: '9 min read'
@@ -540,7 +536,7 @@ function initContactForm() {
     // Simulate sending
     setTimeout(() => {
       submitBtn.innerHTML = '<span>Message Sent!</span> <i class="fas fa-check"></i>';
-      submitBtn.style.background = 'linear-gradient(135deg, #00d4ff, #0077ff)';
+      submitBtn.style.background = 'linear-gradient(135deg, #60a5fa, #c084fc)';
 
       setTimeout(() => {
         form.reset();
@@ -563,7 +559,7 @@ function initNewsletterForm() {
 
     if (input.value) {
       btn.innerHTML = '<i class="fas fa-check"></i>';
-      btn.style.background = 'linear-gradient(135deg, #00d4ff, #0077ff)';
+      btn.style.background = 'linear-gradient(135deg, #60a5fa, #c084fc)';
       input.value = '';
 
       setTimeout(() => {
@@ -686,7 +682,7 @@ function initEnergyParticles() {
 
 // ====== TYPEWRITER EFFECT ======
 function initTypewriterEffect() {
-  const heroDesc = document.querySelector('.hero-desc');
+  const heroDesc = document.getElementById('heroDesc');
   if (!heroDesc) return;
 
   const originalText = heroDesc.textContent;
@@ -706,139 +702,6 @@ function initTypewriterEffect() {
 
   // Start typing after preloader
   setTimeout(typeChar, 1200);
-}
-
-// ====== SKILL BARS (Anime Power Levels) ======
-function initSkillBars() {
-  const aboutSection = document.querySelector('.about');
-  if (!aboutSection) return;
-
-  const aboutText = aboutSection.querySelector('.about-text');
-  if (!aboutText) return;
-
-  const skillsData = [
-    { name: 'Foam Crafting', level: 95, icon: 'fa-cube', class: 'foam', barClass: 'primary' },
-    { name: 'Armor Building', level: 90, icon: 'fa-shield-halved', class: 'armor', barClass: 'secondary' },
-    { name: 'Sewing & Fabric', level: 85, icon: 'fa-scroll', class: 'sewing', barClass: 'tertiary' },
-    { name: 'Wig Styling', level: 80, icon: 'fa-paintbrush', class: 'wig', barClass: 'purple' },
-    { name: 'Makeup FX', level: 88, icon: 'fa-palette', class: 'makeup', barClass: 'gold' },
-    { name: 'LED Electronics', level: 75, icon: 'fa-bolt', class: 'led', barClass: 'green' }
-  ];
-
-  const section = document.createElement('div');
-  section.className = 'skill-section reveal-anime';
-  section.innerHTML = `
-    <h3 class="skill-section-title">⚡ <span>Power Level</span> ⚡</h3>
-    <div class="skills-grid">
-      ${skillsData.map(skill => `
-        <div class="skill-card tilt-card">
-          <div class="skill-header">
-            <div class="skill-icon ${skill.class}"><i class="fas ${skill.icon}"></i></div>
-            <span class="skill-name">${skill.name}</span>
-            <span class="skill-level">${skill.level}%</span>
-          </div>
-          <div class="skill-bar">
-            <div class="skill-bar-fill ${skill.barClass}" data-width="${skill.level}"></div>
-          </div>
-        </div>
-      `).join('')}
-    </div>
-  `;
-
-  aboutText.appendChild(section);
-
-  // Animate bars on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const fills = entry.target.querySelectorAll('.skill-bar-fill');
-        fills.forEach((fill, index) => {
-          setTimeout(() => {
-            fill.style.width = fill.dataset.width + '%';
-          }, index * 150);
-        });
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.3 });
-
-  observer.observe(section);
-}
-
-// ====== 3D TILT CARDS ======
-function initTiltCards() {
-  const cards = document.querySelectorAll('.tilt-card');
-
-  cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = (y - centerY) / 10;
-      const rotateY = (centerX - x) / 10;
-
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-    });
-  });
-}
-
-// ====== ANIME REVEAL ON SCROLL ======
-function initAnimeReveal() {
-  const elements = document.querySelectorAll('.reveal-anime, .reveal-anime-left, .reveal-anime-right, .reveal-anime-scale');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-
-  elements.forEach(el => observer.observe(el));
-}
-
-// ====== MANGA SPEED LINES (on scroll) ======
-function initSpeedLines() {
-  const container = document.createElement('div');
-  container.className = 'speed-lines';
-  container.id = 'speedLines';
-
-  for (let i = 0; i < 20; i++) {
-    const line = document.createElement('div');
-    line.className = 'speed-line';
-    line.style.left = (Math.random() * 100) + '%';
-    line.style.animationDuration = (0.2 + Math.random() * 0.3) + 's';
-    line.style.animationDelay = (Math.random() * 0.3) + 's';
-    line.style.opacity = 0.3 + Math.random() * 0.7;
-    container.appendChild(line);
-  }
-
-  document.body.appendChild(container);
-
-  // Activate on fast scroll
-  let lastScrollY = window.scrollY;
-  let scrollTimeout;
-
-  window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
-    const delta = Math.abs(currentScrollY - lastScrollY);
-    lastScrollY = currentScrollY;
-
-    if (delta > 10) {
-      container.classList.add('active');
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        container.classList.remove('active');
-      }, 300);
-    }
-  });
 }
 
 // ====== SPARKLE EFFECT ON GALLERY ITEMS ======
@@ -875,12 +738,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Console greeting
-console.log('%c JENPORT Cosplay Portfolio ',
-  'background: #e94560; color: #fff; font-size: 14px; padding: 10px 20px; border-radius: 4px; font-family: Orbitron;'
+console.log('%c ✨ JEN - Anime Cosplay Portfolio ✨ ',
+  'background: #ff6b9d; color: #fff; font-size: 14px; padding: 10px 20px; border-radius: 4px; font-family: Bangers; letter-spacing: 2px;'
 );
-console.log('%c ⚡ Anime Effects Loaded ⚡ ',
-  'color: #00d4ff; font-size: 12px; font-family: Rajdhani;'
+console.log('%c 🌸 Anime Effects Loaded 🌸 ',
+  'color: #c084fc; font-size: 12px; font-family: Poppins;'
 );
-console.log('%c Welcome to my cosplay world! ',
-  'color: #ff6b9d; font-size: 12px; font-family: Rajdhani;'
+console.log('%c Bringing anime characters to life! ✦ ',
+  'color: #ff6b9d; font-size: 12px; font-family: Poppins;'
 );
