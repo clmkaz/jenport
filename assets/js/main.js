@@ -21,6 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initScrollAnimations();
   initSmoothScroll();
+  // New anime effects
+  initSakuraPetals();
+  initEnergyParticles();
+  initTypewriterEffect();
+  initSkillBars();
+  initTiltCards();
+  initAnimeReveal();
+  initSpeedLines();
+  initSparkles();
 });
 
 // ====== PRELOADER ======
@@ -275,6 +284,11 @@ function initGallery() {
           <h3>${item.title}</h3>
           <p>${item.description}</p>
         </div>
+        <div class="gallery-hover-effects">
+          <div class="hover-ring">
+            <i class="fas fa-search-plus"></i>
+          </div>
+        </div>
       `;
       div.addEventListener('click', () => openLightbox(item, filtered));
       grid.appendChild(div);
@@ -351,6 +365,7 @@ const blogData = [
     image: 'https://placehold.co/600x400/1a1a2e/e94560?text=Foam+Armor&font=Raleway',
     date: 'June 15, 2026',
     category: 'Tutorials',
+    categoryClass: 'tutorials',
     readTime: '8 min read'
   },
   {
@@ -360,6 +375,7 @@ const blogData = [
     image: 'https://placehold.co/600x400/16213e/00d4ff?text=Dragon+Costume&font=Raleway',
     date: 'May 28, 2026',
     category: 'Behind the Scenes',
+    categoryClass: 'behind',
     readTime: '12 min read'
   },
   {
@@ -369,6 +385,7 @@ const blogData = [
     image: 'https://placehold.co/600x400/2d1b3e/ff6b9d?text=Conventions&font=Raleway',
     date: 'May 10, 2026',
     category: 'Events',
+    categoryClass: 'events',
     readTime: '6 min read'
   },
   {
@@ -378,6 +395,7 @@ const blogData = [
     image: 'https://placehold.co/600x400/1a2e1a/00ff88?text=LED+Guide&font=Raleway',
     date: 'April 22, 2026',
     category: 'Tutorials',
+    categoryClass: 'tutorials',
     readTime: '10 min read'
   },
   {
@@ -387,6 +405,7 @@ const blogData = [
     image: 'https://placehold.co/600x400/3e1a1a/e94560?text=Kit&font=Raleway',
     date: 'April 5, 2026',
     category: 'Tips',
+    categoryClass: 'tips',
     readTime: '5 min read'
   },
   {
@@ -396,6 +415,7 @@ const blogData = [
     image: 'https://placehold.co/600x400/1a1a3e/8888ff?text=Design+Process&font=Raleway',
     date: 'March 18, 2026',
     category: 'Behind the Scenes',
+    categoryClass: 'behind',
     readTime: '9 min read'
   }
 ];
@@ -409,6 +429,7 @@ function initBlog() {
     card.className = 'blog-featured-card';
     card.style.animationDelay = (index * 0.15) + 's';
     card.innerHTML = `
+      <span class="blog-category-badge ${post.categoryClass}">${post.category}</span>
       <img src="${post.image}" alt="${post.title}" class="blog-featured-image" loading="lazy" />
       <div class="blog-featured-overlay">
         <div class="blog-featured-content">
@@ -612,6 +633,236 @@ function initSmoothScroll() {
   });
 }
 
+// ============================================
+// NEW ANIME EFFECTS
+// ============================================
+
+// ====== SAKURA PETAL PARTICLES ======
+function initSakuraPetals() {
+  const container = document.createElement('div');
+  container.className = 'sakura-container';
+  document.body.appendChild(container);
+
+  const petalCount = window.innerWidth < 768 ? 15 : 30;
+
+  for (let i = 0; i < petalCount; i++) {
+    const petal = document.createElement('div');
+    petal.className = 'sakura-petal';
+    const size = 8 + Math.random() * 12;
+    petal.style.width = size + 'px';
+    petal.style.height = size + 'px';
+    petal.style.left = Math.random() * 100 + '%';
+    petal.style.animationDuration = (8 + Math.random() * 12) + 's';
+    petal.style.animationDelay = (Math.random() * 15) + 's';
+    petal.style.opacity = 0.3 + Math.random() * 0.4;
+    container.appendChild(petal);
+  }
+}
+
+// ====== ENERGY PARTICLE FIELD ======
+function initEnergyParticles() {
+  const field = document.createElement('div');
+  field.className = 'energy-field';
+  document.body.appendChild(field);
+
+  const particleCount = window.innerWidth < 768 ? 10 : 25;
+
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'energy-particle';
+    const x = Math.random() * 100;
+    const y = Math.random() * 100;
+    const dx = (Math.random() - 0.5) * 200;
+    const dy = (Math.random() - 0.5) * 200;
+    particle.style.left = x + '%';
+    particle.style.top = y + '%';
+    particle.style.setProperty('--dx', dx + 'px');
+    particle.style.setProperty('--dy', dy + 'px');
+    particle.style.animationDuration = (6 + Math.random() * 8) + 's';
+    particle.style.animationDelay = (Math.random() * 10) + 's';
+    field.appendChild(particle);
+  }
+}
+
+// ====== TYPEWRITER EFFECT ======
+function initTypewriterEffect() {
+  const heroDesc = document.querySelector('.hero-desc');
+  if (!heroDesc) return;
+
+  const originalText = heroDesc.textContent;
+  heroDesc.textContent = '';
+  heroDesc.classList.add('typewriter-text');
+
+  let charIndex = 0;
+  function typeChar() {
+    if (charIndex < originalText.length) {
+      heroDesc.textContent += originalText.charAt(charIndex);
+      charIndex++;
+      setTimeout(typeChar, 30 + Math.random() * 20);
+    } else {
+      heroDesc.classList.remove('typewriter-text');
+    }
+  }
+
+  // Start typing after preloader
+  setTimeout(typeChar, 1200);
+}
+
+// ====== SKILL BARS (Anime Power Levels) ======
+function initSkillBars() {
+  const aboutSection = document.querySelector('.about');
+  if (!aboutSection) return;
+
+  const aboutText = aboutSection.querySelector('.about-text');
+  if (!aboutText) return;
+
+  const skillsData = [
+    { name: 'Foam Crafting', level: 95, icon: 'fa-cube', class: 'foam', barClass: 'primary' },
+    { name: 'Armor Building', level: 90, icon: 'fa-shield-halved', class: 'armor', barClass: 'secondary' },
+    { name: 'Sewing & Fabric', level: 85, icon: 'fa-scroll', class: 'sewing', barClass: 'tertiary' },
+    { name: 'Wig Styling', level: 80, icon: 'fa-paintbrush', class: 'wig', barClass: 'purple' },
+    { name: 'Makeup FX', level: 88, icon: 'fa-palette', class: 'makeup', barClass: 'gold' },
+    { name: 'LED Electronics', level: 75, icon: 'fa-bolt', class: 'led', barClass: 'green' }
+  ];
+
+  const section = document.createElement('div');
+  section.className = 'skill-section reveal-anime';
+  section.innerHTML = `
+    <h3 class="skill-section-title">⚡ <span>Power Level</span> ⚡</h3>
+    <div class="skills-grid">
+      ${skillsData.map(skill => `
+        <div class="skill-card tilt-card">
+          <div class="skill-header">
+            <div class="skill-icon ${skill.class}"><i class="fas ${skill.icon}"></i></div>
+            <span class="skill-name">${skill.name}</span>
+            <span class="skill-level">${skill.level}%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill ${skill.barClass}" data-width="${skill.level}"></div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+  aboutText.appendChild(section);
+
+  // Animate bars on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const fills = entry.target.querySelectorAll('.skill-bar-fill');
+        fills.forEach((fill, index) => {
+          setTimeout(() => {
+            fill.style.width = fill.dataset.width + '%';
+          }, index * 150);
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  observer.observe(section);
+}
+
+// ====== 3D TILT CARDS ======
+function initTiltCards() {
+  const cards = document.querySelectorAll('.tilt-card');
+
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = (y - centerY) / 10;
+      const rotateY = (centerX - x) / 10;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+    });
+  });
+}
+
+// ====== ANIME REVEAL ON SCROLL ======
+function initAnimeReveal() {
+  const elements = document.querySelectorAll('.reveal-anime, .reveal-anime-left, .reveal-anime-right, .reveal-anime-scale');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  elements.forEach(el => observer.observe(el));
+}
+
+// ====== MANGA SPEED LINES (on scroll) ======
+function initSpeedLines() {
+  const container = document.createElement('div');
+  container.className = 'speed-lines';
+  container.id = 'speedLines';
+
+  for (let i = 0; i < 20; i++) {
+    const line = document.createElement('div');
+    line.className = 'speed-line';
+    line.style.left = (Math.random() * 100) + '%';
+    line.style.animationDuration = (0.2 + Math.random() * 0.3) + 's';
+    line.style.animationDelay = (Math.random() * 0.3) + 's';
+    line.style.opacity = 0.3 + Math.random() * 0.7;
+    container.appendChild(line);
+  }
+
+  document.body.appendChild(container);
+
+  // Activate on fast scroll
+  let lastScrollY = window.scrollY;
+  let scrollTimeout;
+
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+    const delta = Math.abs(currentScrollY - lastScrollY);
+    lastScrollY = currentScrollY;
+
+    if (delta > 10) {
+      container.classList.add('active');
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        container.classList.remove('active');
+      }, 300);
+    }
+  });
+}
+
+// ====== SPARKLE EFFECT ON GALLERY ITEMS ======
+function initSparkles() {
+  const galleryItems = document.querySelectorAll('.gallery-item');
+
+  galleryItems.forEach(item => {
+    const sparkleContainer = document.createElement('div');
+    sparkleContainer.className = 'sparkle-container';
+
+    for (let i = 0; i < 5; i++) {
+      const sparkle = document.createElement('div');
+      sparkle.className = 'sparkle';
+      sparkle.style.left = Math.random() * 100 + '%';
+      sparkle.style.top = Math.random() * 100 + '%';
+      sparkle.style.animationDelay = (Math.random() * 2) + 's';
+      sparkle.style.animationDuration = (1 + Math.random() * 1.5) + 's';
+      sparkleContainer.appendChild(sparkle);
+    }
+
+    item.appendChild(sparkleContainer);
+  });
+}
+
 // ====== PERFORMANCE OPTIMIZATIONS ======
 // Lazy load images
 document.addEventListener('DOMContentLoaded', () => {
@@ -627,6 +878,9 @@ document.addEventListener('DOMContentLoaded', () => {
 console.log('%c JENPORT Cosplay Portfolio ',
   'background: #e94560; color: #fff; font-size: 14px; padding: 10px 20px; border-radius: 4px; font-family: Orbitron;'
 );
-console.log('%c Welcome to my cosplay world! ',
+console.log('%c ⚡ Anime Effects Loaded ⚡ ',
   'color: #00d4ff; font-size: 12px; font-family: Rajdhani;'
+);
+console.log('%c Welcome to my cosplay world! ',
+  'color: #ff6b9d; font-size: 12px; font-family: Rajdhani;'
 );
