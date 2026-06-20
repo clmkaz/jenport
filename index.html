@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cosplay Portfolio - Jen</title>
+  <meta name="description"
+    content="Advanced cosplay blog portfolio showcasing creative costumes and character transformations" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <!-- ====== CUSTOM CURSOR ====== -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- ====== PRELOADER ====== -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-ring"></div>
+      <div class="preloader-text">LOADING</div>
+      <div class="preloader-bar">
+        <div class="preloader-bar-fill" id="preloaderBarFill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== NAVIGATION ====== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <span class="logo-text">JE<span class="logo-accent">N</span></span>
+        <span class="logo-sub">Cosplay Portfolio</span>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="#hero" class="nav-link active">Home</a></li>
+        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li class="nav-item"><a href="#blog" class="nav-link">Blog</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <div class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ====== HERO SECTION ====== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-particle" style="top:10%;left:10%;width:4px;height:4px;animation-delay:0s"></div>
+      <div class="hero-particle" style="top:20%;left:80%;width:6px;height:6px;animation-delay:0.5s"></div>
+      <div class="hero-particle" style="top:50%;left:30%;width:3px;height:3px;animation-delay:1s"></div>
+      <div class="hero-particle" style="top:70%;left:70%;width:5px;height:5px;animation-delay:1.5s"></div>
+      <div class="hero-particle" style="top:85%;left:15%;width:4px;height:4px;animation-delay:2s"></div>
+      <div class="hero-particle" style="top:40%;left:90%;width:3px;height:3px;animation-delay:2.5s"></div>
+      <div class="hero-particle" style="top:15%;left:50%;width:5px;height:5px;animation-delay:3s"></div>
+      <div class="hero-particle" style="top:90%;left:45%;width:4px;height:4px;animation-delay:3.5s"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-image-frame">
+        <div class="frame-outer">
+          <div class="frame-inner">
+            <div class="frame-image-container">
+              <video src="assets/video/bido.mp4" alt="Cosplay Profile" class="hero-image" id="heroImage" autoplay muted
+                loop playsinline></video>
+              <div class="frame-overlay"></div>
+            </div>
+          </div>
+        </div>
+        <div class="frame-corner tl"></div>
+        <div class="frame-corner tr"></div>
+        <div class="frame-corner bl"></div>
+        <div class="frame-corner br"></div>
+        <div class="frame-lights">
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="hero-text">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Cosplay Artist & Creator
+        </div>
+        <h1 class="hero-title">
+          <span class="title-line">Bringing Characters</span>
+          <span class="title-line accent">To Life</span>
+        </h1>
+        <p class="hero-desc">
+          Transforming into iconic characters with meticulous attention to detail.
+          Every costume tells a story &mdash; welcome to my world of cosplay.
+        </p>
+        <div class="hero-actions">
+          <a href="#gallery" class="btn btn-primary">
+            <span>View Gallery</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <span>Collaborate</span>
+            <i class="fas fa-handshake"></i>
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-num" data-target="50">0</span>
+            <span class="stat-label">Costumes</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="15">0</span>
+            <span class="stat-label">Awards</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="100">0</span>
+            <span class="stat-label">Events</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ====== ABOUT SECTION ====== -->
+  <section class="about" id="about">
+    <div class="section-header">
+      <span class="section-subtitle">Who I Am</span>
+      <h2 class="section-title">About Me</h2>
+      <div class="section-divider">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="about-image-wrapper">
+        <div class="about-image-frame">
+          <video src="assets/video/about-bido.mp4" class="about-image" autoplay muted loop playsinline></video>
+          <div class="about-frame-border"></div>
+          <div class="about-experience">
+            <span class="exp-num">5+</span>
+            <span class="exp-text">Seconds of <br />Experience</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <h3>Cosplay is more than just dressing up</h3>
+        <p>
+          I'm a passionate cosplayer who believes every character has a story waiting to be told.
+          From intricate armor builds to flowing fantasy gowns, I pour my heart into every creation.
+        </p>
+        <p>
+          My journey began at a local convention five years ago, and since then I've competed
+          on international stages, won multiple awards, and collaborated with amazing photographers
+          and fellow creators around the world.
+        </p>
+        <div class="about-details">
+          <div class="detail-item">
+            <i class="fas fa-mask"></i>
+            <div>
+              <span class="detail-label">Specialty</span>
+              <span class="detail-value">Fantasy & Sci-Fi</span>
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-tools"></i>
+            <div>
+              <span class="detail-label">Crafting</span>
+              <span class="detail-value">Foam, Worbla, 3D Print</span>
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <span class="detail-label">Based In</span>
+              <span class="detail-value">Worldwide</span>
+            </div>
+          </div>
+          <div class="detail-item">
+            <i class="fas fa-award"></i>
+            <div>
+              <span class="detail-label">Achievements</span>
+              <span class="detail-value">Best in Show x3</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== GALLERY SECTION ====== -->
+  <section class="gallery" id="gallery">
+    <div class="section-header">
+      <span class="section-subtitle">My Work</span>
+      <h2 class="section-title">Cosplay Gallery</h2>
+      <div class="section-divider">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="gallery-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="fantasy">Fantasy</button>
+      <button class="filter-btn" data-filter="sci-fi">Sci-Fi</button>
+      <button class="filter-btn" data-filter="anime">Anime</button>
+      <button class="filter-btn" data-filter="original">Original</button>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- Gallery items will be loaded by JS -->
+    </div>
+    <div class="gallery-cta">
+      <button class="btn btn-primary" id="loadMoreBtn">
+        <span>Load More</span>
+        <i class="fas fa-sync-alt"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- ====== LIGHTBOX ====== -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
+    <button class="lightbox-nav prev" id="lightboxPrev">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <div class="lightbox-content">
+      <img src="" alt="" class="lightbox-image" id="lightboxImage" />
+      <div class="lightbox-info">
+        <h3 id="lightboxTitle"></h3>
+        <p id="lightboxDesc"></p>
+      </div>
+    </div>
+    <button class="lightbox-nav next" id="lightboxNext">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+
+  <!-- ====== BLOG SECTION ====== -->
+  <section class="blog" id="blog">
+    <div class="section-header">
+      <span class="section-subtitle">Upcomming events</span>
+      <h2 class="section-title">From the Blog</h2>
+      <div class="section-divider">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="blog-featured" id="blogFeatured">
+      <!-- Featured blog posts with large images will be loaded by JS -->
+    </div>
+  </section>
+
+  <!-- ====== TESTIMONIALS ====== -->
+  <section class="testimonials">
+    <div class="section-header">
+      <span class="section-subtitle">Testimonials</span>
+      <h2 class="section-title">What People Say</h2>
+      <div class="section-divider">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="testimonials-slider" id="testimonialsSlider">
+      <div class="testimonial-card">
+        <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+        <p class="testimonial-text">
+          Absolutely stunning craftsmanship! The attention to detail in every piece
+          is remarkable. One of the most talented cosplayers I've ever worked with.
+        </p>
+        <div class="testimonial-author">
+          <img src="https://placehold.co/60x60/16213e/e94560?text=AK" alt="Avatar" />
+          <div>
+            <span class="author-name">Alex Kim</span>
+            <span class="author-role">Photographer</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+        <p class="testimonial-text">
+          The way they embody each character is pure magic. You don't just see the
+          costume &mdash; you see the character come to life before your eyes.
+        </p>
+        <div class="testimonial-author">
+          <img src="https://placehold.co/60x60/16213e/0f3460?text=SM" alt="Avatar" />
+          <div>
+            <span class="author-name">Sarah Mitchell</span>
+            <span class="author-role">Convention Organizer</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+        <p class="testimonial-text">
+          Won multiple awards at our competition. The dedication and creativity
+          put into each costume is truly next level. Highly recommended!
+        </p>
+        <div class="testimonial-author">
+          <img src="https://placehold.co/60x60/1a1a2e/00d4ff?text=JL" alt="Avatar" />
+          <div>
+            <span class="author-name">James Liu</span>
+            <span class="author-role">Judge, Cosplay Expo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonials-dots" id="testimonialsDots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </section>
+
+  <!-- ====== CONTACT SECTION ====== -->
+  <section class="contact" id="contact">
+    <div class="section-header">
+      <span class="section-subtitle">Get In Touch</span>
+      <h2 class="section-title">Let's Collaborate</h2>
+      <div class="section-divider">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="contact-content">
+      <div class="contact-info">
+        <div class="contact-card">
+          <i class="fas fa-envelope"></i>
+          <h4>Email</h4>
+          <p>frencenjen@gmail.com</p>
+        </div>
+        <div class="contact-card">
+          <i class="fas fa-map-marker-alt"></i>
+          <h4>Location</h4>
+          <p>Available Worldwide</p>
+        </div>
+        <div class="contact-card">
+          <i class="fas fa-clock"></i>
+          <h4>Response Time</h4>
+          <p>Within 24 hours</p>
+        </div>
+        <div class="contact-card">
+          <i class="fas fa-hashtag"></i>
+          <h4>Social</h4>
+          <div class="contact-social">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="#" aria-label="Twitch"><i class="fab fa-twitch"></i></a>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <input type="text" id="formName" placeholder="Your Name" required />
+            <label for="formName">Your Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" id="formEmail" placeholder="Your Email" required display="none" />
+            <label for="formEmail">Your Email</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="text" id="formSubject" placeholder="Subject" />
+          <label for="formSubject">Subject</label>
+        </div>
+        <div class="form-group">
+          <textarea id="formMessage" placeholder="Your Message" required></textarea>
+          <label for="formMessage">Your Message</label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">
+          <span>Send Message</span>
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">
+          <span class="logo-text">JE<span class="logo-accent">N</span></span>
+          <span class="logo-sub">Cosplay Portfolio</span>
+        </a>
+        <p>Transforming imagination into reality, one costume at a time.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="#" aria-label="Patreon"><i class="fab fa-patreon"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-links">
+        <h4>Services</h4>
+        <a href="#">Commission Work</a>
+        <a href="#">Workshops</a>
+        <a href="#">Photography</a>
+        <a href="#">Consultation</a>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Stay Updated</h4>
+        <p>Get notified about new costumes and events.</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="Your Email" required />
+          <button type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Jen Cosplay. All rights reserved. | Crafted with <i class="fas fa-heart"></i> and creativity
+      </p>
+    </div>
+  </footer>
+
+  <!-- ====== BACK TO TOP ====== -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
