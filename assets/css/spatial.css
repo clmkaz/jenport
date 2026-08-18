@@ -1,0 +1,258 @@
+/* ============================================
+   JENPORT - Spatial / 3D Parallax Scene
+   Immersive anime depth effects (pure CSS + JS)
+   ============================================ */
+
+/* --- 3D scene wrapper around the hero --- */
+.spatial-scene {
+  perspective: 1200px;
+  perspective-origin: 50% 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 80vh;
+}
+
+.spatial-3d {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 80vh;
+}
+
+/* --- Per-layer depth --- */
+.spatial-layer {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+/* Deep background: starfield + nebula orbs (no images needed) */
+.spatial-stars {
+  position: absolute;
+  inset: -10%;
+  transform: translateZ(-240px) scale(1.4);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.spatial-star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.7;
+  box-shadow: 0 0 6px var(--accent-secondary);
+  animation: star-twinkle 3s ease-in-out infinite;
+}
+
+.spatial-orb {
+  position: absolute;
+  width: 40vmin;
+  height: 40vmin;
+  border-radius: 50%;
+  filter: blur(60px);
+  mix-blend-mode: screen;
+  animation: orb-drift 12s ease-in-out infinite;
+}
+
+.spatial-orb.pink { background: rgba(255, 107, 157, 0.35); }
+.spatial-orb.purple { background: rgba(192, 132, 252, 0.32); }
+.spatial-orb.blue { background: rgba(96, 165, 250, 0.3); }
+
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.7); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+@keyframes orb-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(6vmin, -6vmin) scale(1.15); }
+}
+
+/* Mid depth: the hero image frame floats in 3D space */
+.spatial-mid {
+  transform: translateZ(30px);
+}
+
+/* Foreground: floating anime cards at high depth.
+   Full-bleed layer; cards live in the side gutters, just outside
+   the centered hero-content column, so they never cover the video. */
+.spatial-front {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Desktop only: cards are positioned against a centered content
+   column of max-width: 1100px, offset just beyond its edges. */
+.spatial-card-a { top: 6%;   left: calc((100% - 1100px) / 2 - 172px); }
+.spatial-card-b { bottom: 6%; left: calc((100% - 1100px) / 2 - 128px); animation-delay: 1.5s; }
+.spatial-card-c { top: 4%;   right: calc((100% - 1100px) / 2 - 172px); animation-delay: 3s; }
+.spatial-card-d { bottom: 10%; right: calc((100% - 1100px) / 2 - 128px); animation-delay: 4.5s; }
+
+.spatial-card {
+  position: absolute;
+  width: 160px;
+  height: 340px;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
+  transform: translateZ(90px);
+  animation: spatial-float 6s ease-in-out infinite;
+}
+
+.spatial-card img,
+.spatial-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.55));
+}
+
+/* Anime-style placeholder until real art is added */
+.spatial-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.spatial-placeholder.gradient-1 { background: linear-gradient(160deg, #ff6b9d, #1a1030); }
+.spatial-placeholder.gradient-2 { background: linear-gradient(160deg, #c084fc, #0d0d1a); }
+.spatial-placeholder.gradient-3 { background: linear-gradient(160deg, #60a5fa, #1a1030); }
+.spatial-placeholder.gradient-4 { background: linear-gradient(160deg, #fbbf24, #0d0d1a); }
+
+.spatial-placeholder::before,
+.spatial-placeholder::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  animation: placeholder-twinkle 3s ease-in-out infinite;
+}
+.spatial-placeholder::before { width: 60%; height: 60%; top: -20%; right: -20%; }
+.spatial-placeholder::after { width: 40%; height: 40%; bottom: -15%; left: -15%; animation-delay: 1.5s; }
+
+@keyframes placeholder-twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+.sp-placeholder-label {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+  opacity: 0.9;
+}
+
+.spatial-card-a { top: 6%;   left: calc((100% - 1100px) / 2 - 172px); }
+.spatial-card-b { bottom: 6%; left: calc((100% - 1100px) / 2 - 128px); animation-delay: 1.5s; }
+.spatial-card-c { top: 4%;   right: calc((100% - 1100px) / 2 - 172px); animation-delay: 3s; }
+.spatial-card-d { bottom: 10%; right: calc((100% - 1100px) / 2 - 128px); animation-delay: 4.5s; }
+
+@keyframes spatial-float {
+  0%, 100% { transform: translateZ(90px) translateY(0) rotate(0deg); }
+  50% { transform: translateZ(110px) translateY(-14px) rotate(2deg); }
+}
+
+/* --- 3D tilt gallery cards --- */
+.gallery-tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  will-change: transform;
+}
+
+.gallery-tilt .gallery-overlay {
+  transform: translateZ(24px);
+}
+
+.gallery-tilt:hover {
+  border-color: var(--accent-primary);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* --- About image gets a spatial twin frame --- */
+.spatial-about {
+  transform-style: preserve-3d;
+}
+
+.spatial-about::after {
+  content: '';
+  position: absolute;
+  inset: -14px;
+  border-radius: var(--border-radius-lg);
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
+  transform: translateZ(-30px);
+  filter: blur(30px);
+  opacity: 0.25;
+  z-index: -1;
+}
+
+/* Mouse parallax driven by --px/--py set from JS */
+.spatial-3d {
+  transform: rotateX(calc(var(--py, 0) * 1deg)) rotateY(calc(var(--px, 0) * 1deg));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .spatial-card:hover { pointer-events: auto; }
+}
+
+/* --- Reduced motion: flatten scene --- */
+@media (prefers-reduced-motion: reduce) {
+  .spatial-3d,
+  .spatial-card,
+  .spatial-mid,
+  .spatial-front,
+  .spatial-orb,
+  .spatial-star,
+  .gallery-tilt {
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  .spatial-layer,
+  .spatial-card,
+  .spatial-stars {
+    transform: none !important;
+  }
+}
+
+/* --- Responsive: cards only render on large screens with real gutters.
+   On smaller screens they'd cover the video/text, so hide the layer and
+   keep the starfield + orbs (background only) for the spatial feel. --- */
+@media (max-width: 1439px) {
+  .spatial-front { display: none; }
+}
+
+/* Short desktop viewports: shrink cards so the two per side never overlap */
+@media (max-height: 850px) and (min-width: 1440px) {
+  .spatial-card { height: 250px; }
+  .spatial-card-a { top: 10%; }
+  .spatial-card-c { top: 8%; }
+  .spatial-card-b { bottom: 10%; }
+  .spatial-card-d { bottom: 14%; }
+}
+
+@media (max-width: 768px) {
+  .spatial-stars { transform: none !important; }
+}

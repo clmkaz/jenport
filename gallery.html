@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | Jen Cosplay</title>
+  <meta name="description" content="Cosplay gallery with 3D tilt cards - shonen, fantasy, magical, and original costumes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@300;500;600;700&family=Nunito:wght@500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/anime-effects.css" />
+  <link rel="stylesheet" href="assets/css/site-nav.css" />
+  <link rel="stylesheet" href="assets/css/spatial.css" />
+</head>
+
+<body data-page="gallery">
+  <div id="siteNav"></div>
+
+  <main class="page">
+    <!-- ====== GALLERY ====== -->
+    <section class="gallery" id="gallery">
+      <div class="section-header">
+        <span class="section-subtitle">✦ My Work ✦</span>
+        <h2 class="section-title">Cosplay Gallery</h2>
+        <div class="section-divider">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="shonen">Shonen</button>
+        <button class="filter-btn" data-filter="fantasy">Fantasy</button>
+        <button class="filter-btn" data-filter="magical">Magical</button>
+        <button class="filter-btn" data-filter="original">Original</button>
+      </div>
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Gallery items loaded by JS -->
+      </div>
+      <div class="gallery-cta">
+        <button class="btn btn-primary" id="loadMoreBtn">
+          <span>Load More</span>
+          <i class="fas fa-sync-alt"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- ====== LIGHTBOX ====== -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+      <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <div class="lightbox-content">
+        <img src="" alt="" class="lightbox-image" id="lightboxImage" />
+        <div class="lightbox-info">
+          <h3 id="lightboxTitle"></h3>
+          <p id="lightboxDesc"></p>
+        </div>
+      </div>
+      <button class="lightbox-nav next" id="lightboxNext" aria-label="Next">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </main>
+
+  <div id="siteFooter"></div>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/spatial.js"></script>
+</body>
+
+</html>

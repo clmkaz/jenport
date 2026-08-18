@@ -114,11 +114,9 @@
 
 /* ====== TYPEWRITER EFFECT ====== */
 .typewriter-text {
-  display: inline;
   border-right: 3px solid var(--accent-primary);
   animation: blink-cursor 0.8s step-end infinite;
-  white-space: nowrap;
-  overflow: hidden;
+  white-space: normal;
 }
 
 @keyframes blink-cursor {

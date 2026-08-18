@@ -7,9 +7,8 @@
 
 // ====== DOM READY ======
 document.addEventListener('DOMContentLoaded', () => {
-  initPreloader();
-  initCursor();
-  initNavbar();
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (finePointer) initCursor();
   initThemeToggle();
   initGallery();
   initLightbox();
@@ -27,32 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initTypewriterEffect();
   initSparkles();
 });
-
-// ====== PRELOADER ======
-function initPreloader() {
-  const preloader = document.getElementById('preloader');
-  const barFill = document.getElementById('preloaderBarFill');
-  let progress = 0;
-
-  const interval = setInterval(() => {
-    progress += Math.random() * 15 + 5;
-    if (progress > 100) progress = 100;
-    barFill.style.width = progress + '%';
-
-    if (progress >= 100) {
-      clearInterval(interval);
-      setTimeout(() => {
-        preloader.classList.add('hidden');
-        document.body.style.cursor = 'none';
-        setTimeout(() => {
-          if (window.innerWidth <= 768) {
-            document.body.style.cursor = 'default';
-          }
-        }, 500);
-      }, 500);
-    }
-  }, 200);
-}
 
 // ====== CUSTOM CURSOR ======
 function initCursor() {
@@ -87,59 +60,6 @@ function initCursor() {
 
 }
 
-// ====== NAVBAR ======
-function initNavbar() {
-  const navbar = document.getElementById('navbar');
-  const hamburger = document.getElementById('hamburger');
-  const navMenu = document.getElementById('navMenu');
-  const navLinks = document.querySelectorAll('.nav-link');
-
-  // Scroll effect
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-    updateActiveLink();
-  });
-
-  // Hamburger menu
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-  });
-
-  // Close menu on link click
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      navMenu.classList.remove('active');
-    });
-  });
-
-  // Active link update
-  function updateActiveLink() {
-    const sections = document.querySelectorAll('section');
-    let current = 'hero';
-
-    sections.forEach(section => {
-      const top = section.offsetTop - 200;
-      const bottom = top + section.offsetHeight;
-      if (window.scrollY >= top && window.scrollY < bottom) {
-        current = section.getAttribute('id');
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === '#' + current) {
-        link.classList.add('active');
-      }
-    });
-  }
-}
-
 // ====== THEME TOGGLE ======
 function initThemeToggle() {
   const toggle = document.getElementById('themeToggle');
@@ -166,70 +86,49 @@ function initThemeToggle() {
   });
 }
 
-// ====== GALLERY DATA - Anime Themed ======
+// ====== GALLERY DATA - Frences' Cosplay Portfolio ======
 const galleryData = [
   {
     id: 1,
-    title: 'Naruto Uzumaki',
-    category: 'shonen',
-    image: 'https://placehold.co/600x800/1a1030/ff6b9d?text=Naruto&font=Raleway',
-    description: 'Seventh Hokage inspired costume with custom jacket and headband.'
+    title: 'Raiden Shogun',
+    category: 'fantasy',
+    image: 'https://placehold.co/600x800/1a1030/ff6b9d?text=Raiden+Shogun&font=Raleway',
+    description: 'Genshin Impact - Electro Archon with hand-crafted details.'
   },
   {
     id: 2,
-    title: 'Sailor Moon',
+    title: 'Nazuna Nanakusa',
     category: 'magical',
-    image: 'https://placehold.co/600x800/1a1030/c084fc?text=Sailor+Moon&font=Raleway',
-    description: 'Magical guardian outfit with hand-embroidered brooch and tiara.'
+    image: 'https://placehold.co/600x800/1a1030/c084fc?text=Nazuna&font=Raleway',
+    description: 'Call of the Night - the mysterious vampire of the night.'
   },
   {
     id: 3,
-    title: 'Mikasa Ackerman',
-    category: 'shonen',
-    image: 'https://placehold.co/600x800/1a1030/60a5fa?text=Mikasa&font=Raleway',
-    description: 'Survey Corps uniform with 3D maneuver gear replica.'
+    title: 'Shuten-dōji',
+    category: 'fantasy',
+    image: 'https://placehold.co/600x800/1a1030/60a5fa?text=Shuten-douji&font=Raleway',
+    description: 'Fate/Grand Order alternate universe interpretation.'
   },
   {
     id: 4,
-    title: 'Original - Star Mage',
-    category: 'original',
-    image: 'https://placehold.co/600x800/1a1030/fbbf24?text=Star+Mage&font=Raleway',
-    description: 'Original magical girl character with cosmic star motifs.'
+    title: 'Toge Inumaki (Female)',
+    category: 'shonen',
+    image: 'https://placehold.co/600x800/1a1030/fbbf24?text=Toge+Inumaki&font=Raleway',
+    description: 'Jujutsu Kaisen - a gender-bend on the cursed speech user.'
   },
   {
     id: 5,
-    title: 'Tanjiro Kamado',
-    category: 'shonen',
-    image: 'https://placehold.co/600x800/1a1030/ff6b9d?text=Tanjiro&font=Raleway',
-    description: 'Demon Slayer outfit with hand-painted hanafuda earrings.'
+    title: 'Christmas Ballerina',
+    category: 'original',
+    image: 'https://placehold.co/600x800/1a1030/ff6b9d?text=Ballerina&font=Raleway',
+    description: 'Original concept blending holiday cheer with a dancer\'s grace.'
   },
   {
     id: 6,
-    title: 'Hatsune Miku',
-    category: 'magical',
-    image: 'https://placehold.co/600x800/1a1030/c084fc?text=Miku&font=Raleway',
-    description: 'Vocaloid diva costume with LED light-up hair accessories.'
-  },
-  {
-    id: 7,
-    title: 'Yoruichi Shihoin',
-    category: 'shonen',
-    image: 'https://placehold.co/600x800/1a1030/60a5fa?text=Yoruichi&font=Raleway',
-    description: 'Bleach captain outfit with custom cat transformation details.'
-  },
-  {
-    id: 8,
-    title: 'Original - Shadow Fox',
+    title: 'Toodles Galore (Humanized)',
     category: 'original',
-    image: 'https://placehold.co/600x800/1a1030/ff6b9d?text=Shadow+Fox&font=Raleway',
-    description: 'Original ninja fox spirit with glowing eyes and tail.'
-  },
-  {
-    id: 9,
-    title: 'Cardcaptor Sakura',
-    category: 'magical',
-    image: 'https://placehold.co/600x800/1a1030/fbbf24?text=Sakura&font=Raleway',
-    description: 'Classic magical girl outfit with Clow Card props.'
+    image: 'https://placehold.co/600x800/1a1030/c084fc?text=Toodles&font=Raleway',
+    description: 'Tom and Jerry - a charming humanized take on the kitten.'
   }
 ];
 
@@ -241,6 +140,7 @@ function initGallery() {
   const grid = document.getElementById('galleryGrid');
   const filterBtns = document.querySelectorAll('.filter-btn');
   const loadMoreBtn = document.getElementById('loadMoreBtn');
+  if (!grid) return;
 
   renderGalleryItems();
 
@@ -272,7 +172,7 @@ function initGallery() {
 
     toShow.forEach((item, index) => {
       const div = document.createElement('div');
-      div.className = 'gallery-item';
+      div.className = 'gallery-item gallery-tilt';
       div.style.animationDelay = (index * 0.1) + 's';
       div.innerHTML = `
         <img src="${item.image}" alt="${item.title}" loading="lazy" />
@@ -310,6 +210,7 @@ let currentLightboxIndex = 0;
 
 function initLightbox() {
   const lightbox = document.getElementById('lightbox');
+  if (!lightbox) return;
   const close = document.getElementById('lightboxClose');
   const prev = document.getElementById('lightboxPrev');
   const next = document.getElementById('lightboxNext');
@@ -352,73 +253,74 @@ function updateLightboxContent() {
   document.getElementById('lightboxDesc').textContent = item.description;
 }
 
-// ====== BLOG DATA - Anime Convention Events ======
+// ====== BLOG DATA - Convention Events & Updates ======
 const blogData = [
   {
     id: 1,
-    title: 'Anime Expo 2026: My Best Cosplay Yet!',
-    excerpt: 'From preparation to the main stage, here is my full experience at Anime Expo 2026 with my award-winning Naruto cosplay.',
-    image: 'https://placehold.co/600x400/1a1030/ff6b9d?text=Anime+Expo+2026&font=Raleway',
-    date: 'July 4, 2026',
-    category: 'Conventions',
+    title: 'Judging the Ilocos Norte Cosplay Cup',
+    excerpt: 'Honored to sit on the judge\'s panel at our regional cosplay competition and mentor the next wave of local talent.',
+    image: 'https://placehold.co/600x400/1a1030/ff6b9d?text=Ilocos+North+Cosplay+Cup&font=Raleway',
+    date: 'August 2026',
+    category: 'Judging',
     categoryClass: 'events',
-    readTime: '8 min read'
+    readTime: 'Guest Appearance'
   },
   {
     id: 2,
-    title: 'How I Built My Demon Slayer Costume',
-    excerpt: 'A step-by-step breakdown of crafting Tanjiro\'s iconic outfit, from fabric selection to the final photoshoot.',
-    image: 'https://placehold.co/600x400/1a1030/c084fc?text=Demon+Slayer+Build&font=Raleway',
-    date: 'June 20, 2026',
-    category: 'Tutorials',
+    title: 'Anime Fest PH: Raiden Shogun Photoshoot',
+    excerpt: 'Debuting my Raiden Shogun build on the main stage at this year\'s Anime Fest PH with an all-day photoshoot.',
+    image: 'https://placehold.co/600x400/1a1030/c084fc?text=Anime+Fest+PH&font=Raleway',
+    date: 'July 2026',
+    category: 'Conventions',
     categoryClass: 'tutorials',
-    readTime: '12 min read'
+    readTime: 'Main Stage'
   },
   {
     id: 3,
-    title: 'Top 10 Anime Conventions to Visit in 2026',
-    excerpt: 'From Comiket to Crunchyroll Expo, discover the best anime conventions around the world for cosplayers and fans.',
-    image: 'https://placehold.co/600x400/1a1030/60a5fa?text=Conventions+2026&font=Raleway',
-    date: 'June 5, 2026',
-    category: 'Events',
+    title: 'Local Cosplay Organization Meetup',
+    excerpt: 'Leading our monthly cosplay org meetup in Ilocos Norte - workshops, planning, and community building.',
+    image: 'https://placehold.co/600x400/1a1030/60a5fa?text=Org+Meetup&font=Raleway',
+    date: 'June 2026',
+    category: 'Community',
     categoryClass: 'events',
-    readTime: '6 min read'
+    readTime: 'Monthly'
   },
   {
     id: 4,
-    title: 'LED Effects for Anime Cosplay: A Beginner\'s Guide',
-    excerpt: 'Learn how to add glowing effects to your anime costumes with easy-to-follow LED integration techniques.',
-    image: 'https://placehold.co/600x400/1a1030/fbbf24?text=LED+Guide&font=Raleway',
-    date: 'May 18, 2026',
-    category: 'Tutorials',
+    title: 'Editorial Shoot: Winter Ballerina',
+    excerpt: 'A collaborative editorial feature exploring my Christmas Ballerina concept with a local studio.',
+    image: 'https://placehold.co/600x400/1a1030/fbbf24?text=Editorial+Shoot&font=Raleway',
+    date: 'May 2026',
+    category: 'Editorial',
     categoryClass: 'tutorials',
-    readTime: '10 min read'
+    readTime: 'Collaboration'
   },
   {
     id: 5,
-    title: 'Convention Survival Kit for Cosplayers',
-    excerpt: 'After 60+ conventions, here is my ultimate cosplayer survival kit that keeps me comfortable and ready.',
-    image: 'https://placehold.co/600x400/1a1030/ff6b9d?text=Con+Kit&font=Raleway',
-    date: 'May 2, 2026',
-    category: 'Tips',
+    title: 'Open for Convention Bookings',
+    excerpt: 'Now accepting guesting, judging, and appearance bookings for 2026-2027 events across the Philippines.',
+    image: 'https://placehold.co/600x400/1a1030/ff6b9d?text=Now+Booking&font=Raleway',
+    date: '2026-2027',
+    category: 'Bookings',
     categoryClass: 'tips',
-    readTime: '5 min read'
+    readTime: 'Available'
   },
   {
     id: 6,
-    title: 'Behind the Scenes: My Miku Cosplay Photoshoot',
-    excerpt: 'Go behind the camera and see how we brought Hatsune Miku to life with amazing lighting and editing.',
-    image: 'https://placehold.co/600x400/1a1030/c084fc?text=Miku+Photoshoot&font=Raleway',
-    date: 'April 15, 2026',
+    title: 'Behind the Scenes: My Nazuna Build',
+    excerpt: 'Go behind the scenes of my Nazuna Nanakusa costume - from wig styling to the final shoot.',
+    image: 'https://placehold.co/600x400/1a1030/c084fc?text=Nazuna+BTS&font=Raleway',
+    date: 'April 2026',
     category: 'Behind the Scenes',
     categoryClass: 'behind',
-    readTime: '9 min read'
+    readTime: 'BTS Feature'
   }
 ];
 
 // ====== BLOG ======
 function initBlog() {
   const container = document.getElementById('blogFeatured');
+  if (!container) return;
 
   blogData.forEach((post, index) => {
     const card = document.createElement('article');
@@ -449,6 +351,7 @@ function initBlog() {
 // ====== TESTIMONIALS SLIDER ======
 function initTestimonialsSlider() {
   const slider = document.getElementById('testimonialsSlider');
+  if (!slider) return;
   const dots = document.querySelectorAll('#testimonialsDots .dot');
   let currentSlide = 0;
   const totalSlides = dots.length;
@@ -524,6 +427,7 @@ function animateCounter(element, target) {
 // ====== CONTACT FORM ======
 function initContactForm() {
   const form = document.getElementById('contactForm');
+  if (!form) return;
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -551,6 +455,7 @@ function initContactForm() {
 // ====== NEWSLETTER FORM ======
 function initNewsletterForm() {
   const form = document.getElementById('newsletterForm');
+  if (!form) return;
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();

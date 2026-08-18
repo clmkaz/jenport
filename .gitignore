@@ -5,3 +5,7 @@ Thumbs.db
 *.log
 .env
 .env.local
+
+# Local tooling / design artifacts (not part of the site)
+.opencode/
+design-system/
